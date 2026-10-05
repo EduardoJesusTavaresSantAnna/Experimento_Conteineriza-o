@@ -1,0 +1,18 @@
+name: experimento-bitcoin
+
+services:
+  treino:
+    build: ./Modelo  # Usa o Dockerfile desta pasta.
+    volumes:
+      - ./Modelo:/app  # Guarda o CSV e os resultados no computador.
+      - ./artefatos:/artefatos  # Permite salvar o modelo na pasta compartilhada.
+
+  backend:
+    build: ./Backend  # Usa o Dockerfile da API.
+    depends_on:
+      treino:
+        condition: service_completed_successfully  # Espera o treino terminar sem erro.
+    ports:
+      - "127.0.0.1:8000:8000"  # Liga a porta do computador à porta do container.
+    volumes:
+      - ./artefatos:/artefatos:ro  # O backend só lê o modelo.

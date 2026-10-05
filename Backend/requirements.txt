@@ -1,0 +1,5 @@
+# Bibliotecas usadas para servir a API e carregar o modelo treinado.
+fastapi>=0.115,<1
+uvicorn>=0.30,<1
+pandas>=2.2,<4
+prophet==1.5.0

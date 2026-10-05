@@ -1,0 +1,8 @@
+# Ferramentas para dados, cálculos e gráfico.
+numpy
+pandas
+matplotlib
+# Treino e backend usam a mesma versão do Prophet.
+prophet==1.5.0
+# Coleta de BTC-USD no Yahoo Finance.
+yfinance
